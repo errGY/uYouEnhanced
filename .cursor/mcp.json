@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "wangp": {
+      "command": "/home/ubuntu/Wan2GP/env_venv/bin/python",
+      "args": [
+        "/home/ubuntu/Wan2GP/wgp.py",
+        "--mcp",
+        "--mcp-transport",
+        "stdio",
+        "--config",
+        "/home/ubuntu/Wan2GP",
+        "--output-dir",
+        "/home/ubuntu/Wan2GP/outputs"
+      ],
+      "cwd": "/home/ubuntu/Wan2GP"
+    }
+  }
+}

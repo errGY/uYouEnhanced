@@ -1,0 +1,7 @@
+{
+    "attention_mode": "sdpa",
+    "compile": "",
+    "video_profile": 5,
+    "image_profile": 5,
+    "audio_profile": 5
+}

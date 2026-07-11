@@ -1,0 +1,22 @@
+{
+  "mcpServers": {
+    "wangp": {
+      "command": "C:\\Users\\Owner\\Videos\\NSFW\\Wan2GP\\env_venv\\Scripts\\python.exe",
+      "args": [
+        "C:\\Users\\Owner\\Videos\\NSFW\\Wan2GP\\wgp.py",
+        "--mcp",
+        "--mcp-transport",
+        "stdio",
+        "--profile",
+        "5",
+        "--attention",
+        "sdpa",
+        "--config",
+        "C:\\Users\\Owner\\Videos\\NSFW\\Wan2GP",
+        "--output-dir",
+        "C:\\Users\\Owner\\Videos\\NSFW\\generated"
+      ],
+      "cwd": "C:\\Users\\Owner\\Videos\\NSFW\\Wan2GP"
+    }
+  }
+}

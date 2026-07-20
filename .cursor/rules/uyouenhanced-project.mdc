@@ -1,0 +1,38 @@
+---
+description: Core project conventions for uYouEnhanced (iOS YouTube tweak)
+alwaysApply: true
+---
+
+# uYouEnhanced — Repository Rules
+
+## Identity
+
+- Official project name is **uYouEnhanced** (not `uYouPlusExtra`, not a rebrand).
+- Package / tweak name: `uYouEnhanced` (`com.arichorn.uyouenhanced`).
+- This is a Theos-based iOS tweak (Objective-C / Logos `.xm` / `.x` / `.m`), primarily for non-jailbroken sideloading.
+
+## Hard constraints from CODE_OF_CONDUCT
+
+- Do **not** upload, publish, or distribute `.ipa` files from this repo or forks.
+- Prefer changes targeting the `main` branch workflow unless an existing feature branch is required.
+- Do not reintroduce the prohibited name `uYouPlusExtra`.
+
+## Layout
+
+- Core tweak sources: `Sources/` (`.xm`, `.x`, `.m`, headers).
+- Bundled tweak deps: `Tweaks/` (git submodules) and `Bundles/` (symlinks into tweak resources).
+- Localizations / app icons: `Localizations/uYouPlus.bundle/`.
+- Build entrypoints: `Makefile`, `build.sh`, `.github/workflows/buildapp.yml`.
+
+## Coding conventions
+
+- Keep Logos hooks and ObjC style consistent with neighboring files in `Sources/`.
+- Settings keys belong in `Sources/SettingsKeys.h` and related settings controllers.
+- Prefer minimal, focused diffs; do not rewrite unrelated tweaks under `Tweaks/` unless the task requires it.
+- Respect submodule boundaries: update submodule pointers deliberately; do not vendor large third-party trees casually.
+
+## Build / CI awareness
+
+- Default YouTube version is set in the `Makefile` (`YOUTUBE_VERSION`); do not bump it without cause.
+- Non-jailbroken builds use Theos `jailed` modules; jailbroken builds differ (`JAILBROKEN=1`).
+- Never add steps that publish or attach `.ipa` artifacts to public releases in ways that violate the CoC.

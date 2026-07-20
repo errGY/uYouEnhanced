@@ -1,0 +1,13 @@
+---
+description: Logos / Objective-C source conventions under Sources/
+globs: Sources/**/*.{xm,x,m,h}
+alwaysApply: false
+---
+
+# Sources/ Logos & Objective-C
+
+- Match existing patterns in `uYouPlus.xm`, `uYouPlusSettings.xm`, and related controllers.
+- Use `#import` / project headers consistently (`uYouPlus.h`, `SettingsKeys.h`, etc.).
+- Prefer feature flags via existing settings keys rather than hard-coding behavior.
+- When adding a setting: wire key → localization string → settings controller UI → hook gated by the key.
+- Avoid breaking sideload (jailed) paths; many hooks must tolerate missing jailbreak APIs.

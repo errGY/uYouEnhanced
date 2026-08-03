@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VOLTGO · Pit Stop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --asphalt: #121212;
+      --yellow: #F5E600;
+      --rubber: #2a2a2a;
+      --white: #F4F4F2;
+      --orange: #FF4D1A;
+      --muted: #a8a8a4;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      font-family: "DM Sans", sans-serif;
+      background: var(--asphalt);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+    .back {
+      position: fixed; top: 18px; left: 18px; z-index: 20;
+      color: var(--white); text-decoration: none; font-size: 0.85rem;
+      background: rgba(0,0,0,0.45); padding: 8px 14px; border-radius: 999px;
+      backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.12);
+    }
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      position: relative;
+    }
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .media { min-height: 48vh; order: -1; }
+    }
+    .copy {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: clamp(32px, 6vw, 80px);
+      position: relative; z-index: 2;
+      background:
+        linear-gradient(135deg, #101010 0%, #1a1a1a 55%, #151515 100%);
+    }
+    .copy::before {
+      content: "07";
+      position: absolute;
+      right: 6%; top: 12%;
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(8rem, 22vw, 16rem);
+      line-height: 0.8;
+      color: transparent;
+      -webkit-text-stroke: 2px rgba(245,230,0,0.18);
+      pointer-events: none;
+      animation: drift 8s ease-in-out infinite alternate;
+    }
+    @keyframes drift {
+      from { transform: translateY(0); }
+      to { transform: translateY(18px); }
+    }
+    .brand {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(3.2rem, 8vw, 5.5rem);
+      letter-spacing: 0.06em;
+      color: var(--yellow);
+      line-height: 0.9;
+      margin-bottom: 20px;
+      animation: slideIn 0.7s ease both;
+    }
+    h1 {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      letter-spacing: 0.02em;
+      line-height: 0.95;
+      max-width: 10ch;
+      margin-bottom: 16px;
+      animation: slideIn 0.7s 0.08s ease both;
+    }
+    .lead {
+      color: var(--muted);
+      max-width: 32ch;
+      font-size: 1.05rem;
+      margin-bottom: 28px;
+      animation: slideIn 0.7s 0.16s ease both;
+    }
+    .cta {
+      display: flex; gap: 12px; flex-wrap: wrap;
+      animation: slideIn 0.7s 0.24s ease both;
+    }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 14px 26px;
+      font-weight: 700; font-size: 0.95rem;
+      text-decoration: none; border: none; cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+    .btn-primary {
+      background: var(--yellow); color: #111;
+    }
+    .btn-primary:hover { transform: translateY(-2px); background: #fff04a; }
+    .btn-ghost {
+      background: transparent; color: var(--white);
+      border: 1.5px solid rgba(255,255,255,0.35);
+    }
+    .btn-ghost:hover { border-color: var(--yellow); color: var(--yellow); }
+    .media {
+      position: relative;
+      background:
+        linear-gradient(to left, transparent 40%, rgba(18,18,18,0.55)),
+        url("assets/hero-pitstop.jpg") center/cover no-repeat;
+      animation: ken 14s ease-in-out infinite alternate;
+    }
+    @keyframes ken {
+      from { background-size: 100% auto; }
+      to { background-size: 108% auto; }
+    }
+    @media (max-width: 900px) {
+      .media {
+        background:
+          linear-gradient(to top, rgba(18,18,18,0.75), transparent 45%),
+          url("assets/hero-pitstop.jpg") center/cover no-repeat;
+        animation: none;
+      }
+    }
+    .stripe {
+      position: absolute; left: 0; right: 0; bottom: 18%;
+      height: 8px; background: var(--yellow);
+      transform: skewY(-2deg);
+      box-shadow: 0 0 0 4px var(--asphalt), 0 0 0 8px var(--orange);
+      opacity: 0.9;
+      animation: stripeIn 1s 0.4s ease both;
+    }
+    @keyframes stripeIn {
+      from { transform: skewY(-2deg) translateX(-40%); opacity: 0; }
+      to { transform: skewY(-2deg) translateX(0); opacity: 0.9; }
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .notes {
+      max-width: 900px; margin: 0 auto; padding: 48px 24px 80px;
+      color: var(--muted); font-size: 0.95rem;
+    }
+    .notes h2 { color: var(--white); font-size: 1.1rem; margin-bottom: 12px; }
+    .notes ul { padding-left: 1.2em; }
+    .notes li { margin-bottom: 6px; }
+  </style>
+</head>
+<body>
+  <a class="back" href="index.html">← все стили</a>
+  <section class="hero">
+    <div class="copy">
+      <div class="brand">VOLTGO</div>
+      <h1>МАЛЕНЬКИЙ ГОНЩИК. БОЛЬШОЙ ЗАРЯД.</h1>
+      <p class="lead">Мини электромото для детей — скорость под контролем, стиль как на пит-лейне.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="#">Смотреть модели</a>
+        <a class="btn btn-ghost" href="#">Как выбрать</a>
+      </div>
+    </div>
+    <div class="media" aria-hidden="true">
+      <div class="stripe"></div>
+    </div>
+  </section>
+  <aside class="notes">
+    <h2>Почему этот стиль</h2>
+    <ul>
+      <li>Аудитория: дети 5–12 + папы, которым нравится «настоящий» мото-вайб</li>
+      <li>Якорь: номер гонщика, safety yellow, асфальтовая текстура</li>
+      <li>Риск: может казаться слишком «взрослым» — смягчать фото детей в шлемах в каталоге</li>
+    </ul>
+  </aside>
+</body>
+</html>

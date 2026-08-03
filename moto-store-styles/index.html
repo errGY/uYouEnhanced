@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VOLTGO — варианты стиля магазина</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@400;600;700&family=Racing+Sans+One&family=Sora:wght@400;600;700&family=Space+Grotesk:wght@400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0f1214;
+      --surface: #1a1f23;
+      --text: #f2f4f5;
+      --muted: #9aa3a8;
+      --line: rgba(255,255,255,0.08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "DM Sans", sans-serif;
+      background:
+        radial-gradient(ellipse 80% 50% at 10% -10%, #1e3a2f 0%, transparent 55%),
+        radial-gradient(ellipse 60% 40% at 90% 0%, #3a2018 0%, transparent 50%),
+        var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 48px 24px 80px; }
+    header { margin-bottom: 48px; max-width: 640px; }
+    .eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-family: "Syne", sans-serif;
+      font-weight: 800;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    header p { color: var(--muted); font-size: 1.05rem; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+    @media (max-width: 800px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+    a.concept {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      border-radius: 20px;
+      overflow: hidden;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      transition: transform 0.35s ease, border-color 0.35s ease;
+    }
+    a.concept:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255,255,255,0.22);
+    }
+    .thumb {
+      aspect-ratio: 16/10;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .thumb::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(15,18,20,0.85), transparent 55%);
+    }
+    .meta { padding: 22px 24px 28px; }
+    .tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .meta h2 {
+      font-size: 1.45rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+    .meta p { color: var(--muted); font-size: 0.95rem; margin-bottom: 16px; }
+    .swatches { display: flex; gap: 8px; }
+    .swatch {
+      width: 28px; height: 28px; border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.15);
+    }
+    .fonts {
+      margin-top: 14px;
+      font-size: 0.82rem;
+      color: #c5cbd0;
+    }
+    footer {
+      margin-top: 56px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <p class="eyebrow">Style concepts · интернет-магазин</p>
+      <h1>Четыре визуальных направления для VOLTGO</h1>
+      <p>Мини электромото для детей. Один бренд — четыре характера. Открой вариант, чтобы увидеть hero первого экрана вживую.</p>
+    </header>
+
+    <div class="grid">
+      <a class="concept" href="01-pitstop.html">
+        <div class="thumb" style="background-image:url('assets/hero-pitstop.jpg')"></div>
+        <div class="meta">
+          <span class="tag">01 · энергия трека</span>
+          <h2 style="font-family:'Bebas Neue',sans-serif; font-size:2rem; letter-spacing:0.04em;">PIT STOP</h2>
+          <p>Асфальт, safety yellow, крупные номера — как детский race day без «малышкового» китча.</p>
+          <div class="swatches">
+            <span class="swatch" style="background:#121212"></span>
+            <span class="swatch" style="background:#F5E600"></span>
+            <span class="swatch" style="background:#E8E8E8"></span>
+            <span class="swatch" style="background:#FF4D1A"></span>
+          </div>
+          <p class="fonts">Bebas Neue + DM Sans</p>
+        </div>
+      </a>
+
+      <a class="concept" href="02-trail.html">
+        <div class="thumb" style="background-image:url('assets/hero-trail.jpg')"></div>
+        <div class="meta">
+          <span class="tag">02 · выходные на природе</span>
+          <h2 style="font-family:'Fraunces',serif; font-weight:700;">Trail Buddy</h2>
+          <p>Лесная тропа, бирюза и глина — мягкий outdoor для родителей, которые покупают «на дачу».</p>
+          <div class="swatches">
+            <span class="swatch" style="background:#1F3D32"></span>
+            <span class="swatch" style="background:#3BA99C"></span>
+            <span class="swatch" style="background:#E07840"></span>
+            <span class="swatch" style="background:#EAF4F1"></span>
+          </div>
+          <p class="fonts">Fraunces + Outfit</p>
+        </div>
+      </a>
+
+      <a class="concept" href="03-candy.html">
+        <div class="thumb" style="background-image:url('assets/hero-candy.jpg')"></div>
+        <div class="meta">
+          <span class="tag">03 · toy garage</span>
+          <h2 style="font-family:'Racing Sans One',sans-serif; color:#E6392B;">Candy Garage</h2>
+          <p>Глянцевый cherry + cobalt: витрина игрушечного гаража с премиальным блеском.</p>
+          <div class="swatches">
+            <span class="swatch" style="background:#E6392B"></span>
+            <span class="swatch" style="background:#1B4DFF"></span>
+            <span class="swatch" style="background:#F7F7F5"></span>
+            <span class="swatch" style="background:#1A1A1A"></span>
+          </div>
+          <p class="fonts">Racing Sans One + Space Grotesk</p>
+        </div>
+      </a>
+
+      <a class="concept" href="04-softvolt.html">
+        <div class="thumb" style="background-image:url('assets/hero-softvolt.jpg')"></div>
+        <div class="meta">
+          <span class="tag">04 · спокойный tech</span>
+          <h2 style="font-family:'Sora',sans-serif; font-weight:700;">Soft Volt</h2>
+          <p>Графит и мятный volt — доверие родителей, безопасность и «взрослая» подача детского продукта.</p>
+          <div class="swatches">
+            <span class="swatch" style="background:#2C3338"></span>
+            <span class="swatch" style="background:#3DDC97"></span>
+            <span class="swatch" style="background:#FF8A7A"></span>
+            <span class="swatch" style="background:#F7F8F7"></span>
+          </div>
+          <p class="fonts">Sora + DM Sans</p>
+        </div>
+      </a>
+    </div>
+
+    <footer>
+      Фейковый бренд VOLTGO · только стиль-концепты первого экрана. Выбери направление — можно углубить в полный магазин.
+    </footer>
+  </div>
+</body>
+</html>

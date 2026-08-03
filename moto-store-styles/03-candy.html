@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VOLTGO · Candy Garage</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cherry: #E6392B;
+      --cobalt: #1B4DFF;
+      --ink: #141414;
+      --snow: #F7F7F5;
+      --steel: #8B9199;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Space Grotesk", sans-serif;
+      background: var(--snow);
+      color: var(--ink);
+    }
+    .back {
+      position: fixed; top: 18px; left: 18px; z-index: 20;
+      color: var(--ink); text-decoration: none; font-size: 0.85rem;
+      background: rgba(247,247,245,0.9); padding: 8px 14px; border-radius: 999px;
+      backdrop-filter: blur(8px); border: 1px solid rgba(0,0,0,0.08);
+    }
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, #ffffff 0%, #f0f1f3 40%, #e4e6ea 100%);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 55vmax; height: 55vmax;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(230,57,43,0.18), transparent 65%);
+      top: -15%; right: -10%;
+      animation: pulse 6s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 40vmax; height: 40vmax;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(27,77,255,0.14), transparent 65%);
+      bottom: -10%; left: -8%;
+      animation: pulse 7s 1s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.08); opacity: 0.75; }
+    }
+    .top {
+      position: relative; z-index: 2;
+      padding: clamp(56px, 8vw, 96px) clamp(24px, 6vw, 80px) 0;
+      text-align: center;
+    }
+    .brand {
+      font-family: "Racing Sans One", sans-serif;
+      font-size: clamp(3.5rem, 10vw, 7rem);
+      color: var(--cherry);
+      letter-spacing: 0.02em;
+      line-height: 0.9;
+      animation: pop 0.6s cubic-bezier(0.2, 0.9, 0.3, 1.2) both;
+    }
+    h1 {
+      margin-top: 12px;
+      font-size: clamp(1.35rem, 2.8vw, 1.9rem);
+      font-weight: 700;
+      max-width: 22ch;
+      margin-left: auto; margin-right: auto;
+      animation: pop 0.6s 0.08s cubic-bezier(0.2, 0.9, 0.3, 1.2) both;
+    }
+    .lead {
+      margin: 12px auto 24px;
+      color: var(--steel);
+      max-width: 38ch;
+      font-size: 1.05rem;
+      animation: pop 0.6s 0.14s cubic-bezier(0.2, 0.9, 0.3, 1.2) both;
+    }
+    .cta {
+      display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+      animation: pop 0.6s 0.2s cubic-bezier(0.2, 0.9, 0.3, 1.2) both;
+    }
+    .btn {
+      display: inline-flex; align-items: center;
+      padding: 14px 26px;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-primary {
+      background: var(--cobalt); color: #fff;
+      box-shadow: 4px 4px 0 var(--ink);
+    }
+    .btn-primary:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); }
+    .btn-ghost {
+      background: #fff; color: var(--ink);
+      border: 2px solid var(--ink);
+    }
+    .btn-ghost:hover { background: var(--cherry); color: #fff; border-color: var(--cherry); }
+    .stage {
+      position: relative; z-index: 2;
+      display: flex; align-items: flex-end; justify-content: center;
+      padding: 24px clamp(16px, 4vw, 48px) 0;
+      min-height: 48vh;
+    }
+    .stage img {
+      width: min(980px, 100%);
+      height: auto;
+      max-height: 58vh;
+      object-fit: cover;
+      object-position: center 40%;
+      display: block;
+      mask-image: linear-gradient(to bottom, #000 70%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent 100%);
+      animation: rollIn 1s 0.25s ease both;
+    }
+    @keyframes pop {
+      from { opacity: 0; transform: translateY(16px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    @keyframes rollIn {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .notes {
+      max-width: 900px; margin: 0 auto; padding: 48px 24px 80px;
+      color: var(--steel); font-size: 0.95rem;
+    }
+    .notes h2 { color: var(--ink); font-size: 1.1rem; margin-bottom: 12px; }
+    .notes ul { padding-left: 1.2em; }
+    .notes li { margin-bottom: 6px; }
+  </style>
+</head>
+<body>
+  <a class="back" href="index.html">← все стили</a>
+  <section class="hero">
+    <div class="top">
+      <div class="brand">VOLTGO</div>
+      <h1>Гараж мечты для маленького пилота</h1>
+      <p class="lead">Яркие мини электромото с характером игрушки и качеством настоящей техники.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="#">В каталог</a>
+        <a class="btn btn-ghost" href="#">Подарочный гид</a>
+      </div>
+    </div>
+    <div class="stage">
+      <img src="assets/hero-candy.jpg" alt="Красный мини электромото VOLTGO" />
+    </div>
+  </section>
+  <aside class="notes">
+    <h2>Почему этот стиль</h2>
+    <ul>
+      <li>Аудитория: подарочный сегмент, яркий «вау» для ребёнка</li>
+      <li>Якорь: cherry/cobalt, racing display, глянцевый продукт</li>
+      <li>Риск: легко скатиться в «дешёвую игрушку» — держать премиум-фото и чистый фон</li>
+    </ul>
+  </aside>
+</body>
+</html>

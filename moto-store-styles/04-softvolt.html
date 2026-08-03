@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VOLTGO · Soft Volt</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Sora:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --graphite: #2C3338;
+      --mint: #3DDC97;
+      --blush: #FF8A7A;
+      --paper: #F7F8F7;
+      --mute: #6B757A;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "DM Sans", sans-serif;
+      background: var(--paper);
+      color: var(--graphite);
+    }
+    .back {
+      position: fixed; top: 18px; left: 18px; z-index: 20;
+      color: var(--graphite); text-decoration: none; font-size: 0.85rem;
+      background: rgba(247,248,247,0.9); padding: 8px 14px; border-radius: 999px;
+      backdrop-filter: blur(8px); border: 1px solid rgba(44,51,56,0.1);
+    }
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      background:
+        linear-gradient(145deg, #fbfbfa 0%, #eef3f0 45%, #e8eceb 100%);
+    }
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .media { min-height: 46vh; order: -1; }
+    }
+    .copy {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: clamp(40px, 7vw, 96px);
+      position: relative;
+    }
+    .copy::before {
+      content: "";
+      position: absolute;
+      left: 0; top: 18%; bottom: 18%;
+      width: 4px;
+      background: linear-gradient(var(--mint), var(--blush));
+      border-radius: 4px;
+      animation: grow 1s ease both;
+    }
+    @keyframes grow {
+      from { transform: scaleY(0); transform-origin: top; }
+      to { transform: scaleY(1); }
+    }
+    .brand {
+      font-family: "Sora", sans-serif;
+      font-weight: 700;
+      font-size: clamp(2.4rem, 5.5vw, 3.8rem);
+      letter-spacing: -0.04em;
+      margin-bottom: 20px;
+      animation: fadeUp 0.7s ease both;
+    }
+    .brand i {
+      font-style: normal;
+      color: var(--mint);
+    }
+    h1 {
+      font-family: "Sora", sans-serif;
+      font-weight: 600;
+      font-size: clamp(1.45rem, 3vw, 2rem);
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      max-width: 14ch;
+      margin-bottom: 14px;
+      animation: fadeUp 0.7s 0.08s ease both;
+    }
+    .lead {
+      color: var(--mute);
+      max-width: 34ch;
+      font-size: 1.05rem;
+      margin-bottom: 28px;
+      animation: fadeUp 0.7s 0.14s ease both;
+    }
+    .cta {
+      display: flex; gap: 12px; flex-wrap: wrap;
+      animation: fadeUp 0.7s 0.2s ease both;
+    }
+    .btn {
+      display: inline-flex; align-items: center;
+      padding: 14px 24px;
+      border-radius: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.2s, background 0.2s;
+    }
+    .btn-primary { background: var(--graphite); color: #fff; }
+    .btn-primary:hover { transform: translateY(-2px); background: #1f2529; }
+    .btn-ghost {
+      background: transparent; color: var(--graphite);
+      border: 1.5px solid rgba(44,51,56,0.22);
+    }
+    .btn-ghost:hover { border-color: var(--mint); color: #1a8f5c; }
+    .media {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(to right, rgba(247,248,247,0.65), transparent 28%),
+        url("assets/hero-softvolt.jpg") center/cover no-repeat;
+    }
+    .media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent 40%, rgba(61,220,151,0.12));
+      animation: sheen 5s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+    @keyframes sheen {
+      from { opacity: 0.4; }
+      to { opacity: 1; }
+    }
+    @media (max-width: 900px) {
+      .media {
+        background:
+          linear-gradient(to top, rgba(247,248,247,0.9), transparent 40%),
+          url("assets/hero-softvolt.jpg") center/cover no-repeat;
+      }
+      .copy::before { display: none; }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .notes {
+      max-width: 900px; margin: 0 auto; padding: 48px 24px 80px;
+      color: var(--mute); font-size: 0.95rem;
+    }
+    .notes h2 {
+      font-family: "Sora", sans-serif;
+      color: var(--graphite); font-size: 1.1rem; margin-bottom: 12px;
+    }
+    .notes ul { padding-left: 1.2em; }
+    .notes li { margin-bottom: 6px; }
+  </style>
+</head>
+<body>
+  <a class="back" href="index.html">← все стили</a>
+  <section class="hero">
+    <div class="copy">
+      <div class="brand">volt<i>go</i></div>
+      <h1>Тихая сила для первых поездок</h1>
+      <p class="lead">Мини электромото с акцентом на безопасность, контроль скорости и спокойствие родителей.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="#">Смотреть модели</a>
+        <a class="btn btn-ghost" href="#">Безопасность</a>
+      </div>
+    </div>
+    <div class="media" role="img" aria-label="Мини электромото в светлом интерьере"></div>
+  </section>
+  <aside class="notes">
+    <h2>Почему этот стиль</h2>
+    <ul>
+      <li>Аудитория: родители, которые выбирают «разумный» подарок</li>
+      <li>Якорь: графит + mint volt, мягкий интерьерный контекст</li>
+      <li>Сильная сторона: доверие и премиум без детского шума</li>
+    </ul>
+  </aside>
+</body>
+</html>
